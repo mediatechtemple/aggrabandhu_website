@@ -23,6 +23,7 @@ body {
   background-color: rgb(var(--background-start-rgb)); 
   font-family: "mouse-300", Arial, Helvetica, sans-serif;
   color: #6A6A6A; /* This overrides the earlier color property */
+  
 }
 
 /* Custom utility classes */

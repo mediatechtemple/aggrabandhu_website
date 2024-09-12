@@ -1,10 +1,9 @@
-import TeamSection from '@/components/About/TeamSection';
-import OurBlogSection from '@/components/Home/OurBlogSection';
-import React from 'react'
+// components/PageNav.js
+
 import { FaHome, FaAngleDoubleRight } from 'react-icons/fa';
-const page = () => {
+
+export default function PageNav() {
   return (
-    <>
     <div className="page-nav no-margin row bg-gray-100 py-4">
       <div className="container mx-auto">
         <div className="row flex flex-col items-center text-center">
@@ -22,11 +21,5 @@ const page = () => {
         </div>
       </div>
     </div>
-    {/* here really i am going to use reusable component to be honest over here  */}
-    <OurBlogSection/>
-    <TeamSection/>
-    </>
-  )
+  );
 }
-
-export default page

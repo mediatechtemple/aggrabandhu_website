@@ -6,14 +6,13 @@ import Footer from "./Footer";
 export default function Layout({ children }) {
   return (
     <>
-    <div style={{display:'flex', flexDirection:'column',minHeight: '100vh', margin: 0, padding: 0,}}>
+    <div className="flex flex-col min-h-screen overflow-x-hidden">
         <Header/>
-            <main style={{flex: 1}}>
+            <main className="flex-grow">
                 {children}
             </main>
         <Footer/>
     </div>
-      
     </>
   );
 }
