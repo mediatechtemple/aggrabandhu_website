@@ -81,8 +81,8 @@ export default function Header() {
 
       {/* Donate Button */}
       <div className="hidden lg:block">
-        <button className="bg-green-500 text-white py-2 px-4 rounded">
-          Donate Now
+        <button className="bg-green-500 text-white py-2 px-4 rounded" >
+        <Link href="https://dashboard.aggrabandhuss.org/Login" className="text-gray-700 hover:text-gray-900">Login/Apply membership</Link>
         </button>
       </div>
     </div>
