@@ -4,7 +4,7 @@ import React from 'react';
 const BlogSection = () => {
     const blogs = [
         {
-            imgSrc: "/images/slider/slide-01.jpg",
+            imgSrc: "/Images/slider/slide-01.jpg",
             date: "August 10 2018",
             title: "Methods of Recruitment",
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam justo neque, aliquet sit amet elementum vel, vehicula eget eros...",
@@ -18,7 +18,7 @@ const BlogSection = () => {
             link: "#"
         },
         {
-            imgSrc: "/images/slider/slide-03.jpg",
+            imgSrc: "/Images/slider/slide-03.jpg",
             date: "August 10 2018",
             title: "Methods of Recruitment",
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam justo neque, aliquet sit amet elementum vel, vehicula eget eros...",
