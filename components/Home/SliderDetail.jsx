@@ -4,13 +4,13 @@ import { useEffect, useState } from 'react';
 
 const images = [
   {
-    src: "/images/slider/slide-02.jpg",
+    src: "images/slider/slide-02.jpg",
     alt: "First slide",
     captionTitle: "Support Child for Education",
     captionText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam justo neque, aliquet sit amet elementum vel, vehicula eget eros. Vivamus arcu metus, mattis sed sagittis at, sagittis quis neque. Praesent.",
   },
   {
-    src: "/images/slider/slide-03.jpg",
+    src: "images/slider/slide-03.jpg",
     alt: "Third slide",
     captionTitle: "We Need Your Support",
     captionText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam justo neque, aliquet sit amet elementum vel, vehicula eget eros. Vivamus arcu metus, mattis sed sagittis at, sagittis quis neque. Praesent.",
