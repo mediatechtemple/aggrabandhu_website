@@ -11,7 +11,7 @@ const BlogSection = () => {
             link: "#"
         },
         {
-            imgSrc: "/images/slider/slide-02.jpg",
+            imgSrc: "/Images/slider/slide-02.jpg",
             date: "August 10 2018",
             title: "Methods of Recruitment",
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam justo neque, aliquet sit amet elementum vel, vehicula eget eros...",

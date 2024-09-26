@@ -63,7 +63,7 @@ export default function Header() {
     <div className="flex items-center justify-between">
       {/* Logo and Mobile Menu Button */}
       <div className="flex items-center space-x-4">
-        <Image src="/images/agarsen.png" alt="Logo" width={50} height={50}/>
+        <Image src="/Images/agarsen.png" alt="Logo" width={50} height={50}/>
         <button className="lg:hidden text-2xl">
           <i className="fas fa-bars"></i>
         </button>
