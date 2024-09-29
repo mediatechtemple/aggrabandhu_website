@@ -1,67 +1,42 @@
-'use client';
-import React from 'react';
-
-export default function WhatWeDo() {
+import Image from 'next/image';
+/* eslint-disable react/no-unescaped-entities */
+const WhatWeDo = () => {
   return (
-    <section className="what-we-do py-12">
-      <div className="container mx-auto">
-        <div className="session-title text-center mb-8">
-          <h2 className="text-3xl font-bold">What we Do</h2>
-          <p className="text-gray-600">We are a non-profit & Charity raising money for child education</p>
-        </div>
-
-
-        <div className="flex flex-wrap justify-center items-center">
-          <div className="w-full md:w-1/2 p-4">
-            <div className="donat-form bg-gray-100 p-6 rounded-lg shadow-md">
-              <div className="form-titl mb-4">
-                <b className="text-lg">Enter the amount for Donation</b>
-              </div>
-              <div className="form-dong">
-                <div className="input-group mb-4">
-                  <div className="flex">
-                    <span className="inline-block bg-gray-200 px-4 py-2 rounded-l">$</span>
-                    <input type="text" className="form-control flex-grow p-2 border rounded-r" placeholder="Enter Amount" />
-                  </div>
-                </div>
-                <div className="input-group mb-4">
-                  <input type="text" className="form-control w-full p-2 border rounded" placeholder="Enter Full Name" />
-                </div>
-                <div className="input-group mb-4">
-                  <input type="text" className="form-control w-full p-2 border rounded" placeholder="Enter Email Address" />
-                </div>
-                <div className="input-group mb-4">
-                  <input type="text" className="form-control w-full p-2 border rounded" placeholder="Enter City" />
-                </div>
-                <div className="text-center">
-                  <button className="bg-green-500 text-white px-6 py-3 rounded">Donate Now</button>
-                </div>
-              </div>
-            </div>
+    <section className="bg-gray-50 py-10">
+      <div className="container mx-auto px-4">
+        <div className="flex flex-wrap -mx-4">
+          {/* Image Section */}
+          <div className="w-full lg:w-1/2 px-4 mb-6 lg:mb-0 relative h-[300px] lg:h-[400px]">
+            <Image 
+              src="/Images/logo/lakhshami.jpg" 
+              alt="About" 
+              fill 
+              className="contain" // Ensures image scales properly
+              style={{objectFit: "cover"}}
+              priority
+            />
           </div>
 
-          <div className="w-full md:w-1/2 p-4">
-            <div className="donation-list space-y-6">
-              {[
-                { icon: 'fas fa-user-graduate', title: 'We Care Student Education', text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry." },
-                { icon: 'fas fa-medkit', title: 'Care Student Health', text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry." },
-                { icon: 'fas fa-graduation-cap', title: 'We Care Student Education', text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry." },
-                { icon: 'fas fa-dollar-sign', title: '100% Goes to the Field', text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry." }
-              ].map((item, index) => (
-                <div key={index} className="we-ro flex p-4 bg-white shadow-md rounded-lg">
-                  <div className="icon p-4">
-                    {/* <i className={`${item.icon} text-green-500 text-4xl bg-white p-5 rounded-full shadow-md`}></i> */}
-                  </div>
-                  <div className="detail ml-4">
-                    <h6 className="text-lg font-bold">{item.title}</h6>
-                    <p className="text-gray-600 text-sm">{item.text}</p>
-                  </div>
-                </div>
-              ))}
+          {/* Text Section with Scroll */}
+          <div className="w-full lg:w-1/2 px-4 lg:max-h-[400px] overflow-y-auto">
+            <div className="h-full flex flex-col justify-center">
+              <h2 className="text-xl md:text-2xl font-semibold mb-4 text-center">
+                महाराजा अग्रसेन जी के संदेश
+              </h2>
+              <p className="text-justify indent-5 mb-4">
+                अग्रबंधु सेवार्थ संस्थान एक प्रतिष्ठित समाजसेवी संगठन है, जो समाज के आर्थिक, शैक्षिक और सामाजिक रूप से वंचित वर्गों की सेवा और उत्थान के लिए समर्पित है।
+                इस संस्था का मुख्य उद्देश्य जरूरतमंदों को सहायता प्रदान कर उनके जीवन में सुधार लाना है। शिक्षा, स्वास्थ्य, और सामाजिक कल्याण के विभिन्न क्षेत्रों में अग्रसर, यह संगठन समाज के कमजोर वर्गों को सशक्त बनाने के लिए निरंतर प्रयासरत है।
+              </p>
+              <p className="text-justify indent-5 mb-4">
+                सच्चे समाजवाद के प्रणेता और महाभारत काल में जन्मे श्री श्री 1008 महाराजा अग्रसेन के "एक ईट, एक रुपया" संदेश को मूर्त रूप देने के उद्देश्य से संस्था (ABSS) संकट में फंसे परिवारों को आर्थिक सहयोग प्रदान करती है। 
+                यदि किसी परिवार के मुख्य सदस्य की असमय मृत्यु हो जाती है, तो संस्थान के वर्तमान नियमों के अनुसार, उस मृत्यु मामले में संस्था के सदस्य उस परिवार के नॉमिनी को सीधे खाते में सम्मानजनक सहायता राशि प्रदान करते हैं। 
+              </p>
             </div>
           </div>
         </div>
       </div>
     </section>
   );
-}
+};
+
+export default WhatWeDo;

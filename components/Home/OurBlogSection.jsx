@@ -14,6 +14,7 @@ const OurBlogSection = () => {
               priority
             />
           </div>
+          {/* here below content we need  */}
           <div className="w-full lg:w-1/2 px-4">
             <div className="h-full flex flex-col justify-between">
               <div>

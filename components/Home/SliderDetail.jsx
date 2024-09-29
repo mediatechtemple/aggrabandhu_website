@@ -4,17 +4,18 @@ import { useEffect, useState } from 'react';
 
 const images = [
   {
-    src: "/Images/slider/slide-02.jpg",
+    src: "/Images/home/Banner.png",
     alt: "First slide",
     captionTitle: "Support Child for Education",
     captionText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam justo neque, aliquet sit amet elementum vel, vehicula eget eros. Vivamus arcu metus, mattis sed sagittis at, sagittis quis neque. Praesent.",
   },
   {
-    src: "/Images/slider/slide-03.jpg",
+    src: "/Images/home/Banner.png",
     alt: "Third slide",
     captionTitle: "We Need Your Support",
     captionText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam justo neque, aliquet sit amet elementum vel, vehicula eget eros. Vivamus arcu metus, mattis sed sagittis at, sagittis quis neque. Praesent.",
   },
+  
 ];
 
 export default function SliderDetail() {
@@ -42,15 +43,15 @@ export default function SliderDetail() {
 
   return (
     <div className="relative w-full overflow-hidden">
-      <div className="relative w-full h-64 md:h-80 lg:h-[500px]">
+      <div className="relative w-full h-60 md:h-80 lg:h-[470px] ">
         <Image
           src={images[currentIndex].src}
           alt={images[currentIndex].alt}
           layout="fill"
-          objectFit="cover"
-          className="w-full h-full"
+         
+          style={{objectFit:'contain'}}
         />
-        <div className="absolute inset-0 flex flex-col justify-center items-center text-center p-4 bg-black bg-opacity-50">
+        {/* <div className="absolute inset-0 flex flex-col justify-center items-center text-center p-4 bg-black bg-opacity-50">
           <h5 className="text-xl md:text-2xl lg:text-3xl text-white font-bold mb-4">
             {images[currentIndex].captionTitle}
           </h5>
@@ -60,23 +61,23 @@ export default function SliderDetail() {
           <button className="bg-green-500 text-white px-4 py-2 rounded md:px-6 md:py-3 lg:px-8 lg:py-4">
             Donate Now
           </button>
-        </div>
+        </div> */}
       </div>
 
-      <button
+      {/* <button
         className="absolute top-1/2 left-0 transform -translate-y-1/2 p-2 bg-gray-800 text-white rounded-full"
         onClick={handlePrev}
       >
         <span className="sr-only">Previous</span>
         &#10094;
-      </button>
-      <button
+      </button> */}
+      {/* <button
         className="absolute top-1/2 right-0 transform -translate-y-1/2 p-2 bg-gray-800 text-white rounded-full"
         onClick={handleNext}
       >
         <span className="sr-only">Next</span>
         &#10095;
-      </button>
+      </button> */}
     </div>
   );
 }

@@ -48,8 +48,18 @@ const Footer = () => {
     </Grid>
   </Container>
 
+
+
+
+
+
+
+
+
+
+
   {/* Footer Bottom */}
-  <Box className="bg-gray-900 py-2 mt-5">
+  <Box className="bg-gray-900 py-2 ">
     <Container className="flex flex-col md:flex-row justify-between items-center">
       <Typography variant="body2" color="inherit" className="text-center md:text-left">
         <Link href="https://www.smarteyeapps.com/" color="inherit">2015 &copy; All Rights Reserved | Designed and Developed by Smarteyeapps</Link>
