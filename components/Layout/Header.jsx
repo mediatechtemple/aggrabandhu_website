@@ -9,7 +9,7 @@ import { AiOutlineMail } from "react-icons/ai";
 
 export default function Header() {
     return (
-      <header style={{border:'1px solid red'}}>
+      <header >
         {/* Top Header */}
         <div className="bg-gray-800 text-white">
   <div className="container mx-auto px-4 py-2">

@@ -8,7 +8,7 @@ const WhatWeDo = () => {
           {/* Image Section */}
           <div className="w-full lg:w-1/2 px-4 mb-6 lg:mb-0 relative h-[300px] lg:h-[400px]">
             <Image 
-              src="/Images/logo/lakhshami.jpg" 
+              src="/Images/logo/Lakhshami.jpg" 
               alt="About" 
               fill 
               className="contain" // Ensures image scales properly
