@@ -133,7 +133,7 @@ const page = () => {
   //     </div>
   // </div>
   // </>
-  <h1>Here rules and regulation will come</h1>
+  <h1>Here rules and regulation will come.........</h1>
   )
 }
 
