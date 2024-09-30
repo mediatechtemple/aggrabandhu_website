@@ -35,7 +35,7 @@ const NewsTicker = () => {
   }, []);
 
   return (
-    <div className="relative h-32 w-full overflow-hidden border-2 border-gray-300 bg-white mb-4">
+    <div className="relative h-64 w-full overflow-hidden border-2 border-gray-300 bg-white mb-4">
       <div id="news-ticker" className="absolute top-0 w-full">
         {[...newsItems, ...newsItems].map((news, index) => (
           <div

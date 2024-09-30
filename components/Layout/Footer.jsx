@@ -1,52 +1,135 @@
 // Footer.jsx
 
 import React from 'react';
-import { Container, Grid, Typography, Link, Box, IconButton } from '@mui/material';
+import { Container, Grid, Typography, Link, Box} from '@mui/material';
 
 import { Facebook, GitHub, Google, Pinterest, Twitter } from '@mui/icons-material';
+import Image from 'next/image';
+import { IconButton } from '@mui/material';  // Importing MUI IconButton
+import { FaWhatsapp, FaYoutube, FaInstagram, FaTwitter, FaFacebook } from 'react-icons/fa';  // Importing icons from react-icons
+
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 text-white py-5">
+    <footer className="bg-gray-800 text-white py-5 mt-4">
   <Container>
-    <Grid container spacing={4}>
-      {/* About Us Section */}
-      <Grid item md={4} sm={12}>
-        <Typography variant="h6" gutterBottom>About Us</Typography>
-        <Typography variant="body2">
-          Smart Eye is a leading provider of information technology, consulting, and business process services. Our dedicated employees offer strategic insights, technological expertise and industry experience.
-        </Typography>
-        <Typography variant="body2">
-          We focus on technologies that promise to reduce costs, streamline processes and speed time-to-market, backed by our strong quality processes and rich experience managing global...
-        </Typography>
-      </Grid>
+  <div className="flex flex-col md:flex-row justify-between space-y-4 md:space-y-0 md:space-x-8">
+    {/* About Us Section */}
+    <div className="flex-1 flex flex-col  justify-around text-center">
+    <Image src="/Images/logo/logo1.jpg" alt="Logo" width={100} height={100}  
+    className="mx-auto" 
+    style={{borderRadius: "50%"}} />
+              
+      <p className=" font-serif  ml-2 px-1 text-lg  text-white">AGGRABANDHU SEVARTH SANSTHAN</p>
+       
+    </div>
 
-      {/* Useful Links Section */}
-      <Grid item md={4} sm={12}>
-        <Typography variant="h6" gutterBottom>Useful Links</Typography>
-        <ul className="list-none p-0">
-          <li><Link href="#/about" color="inherit">About us</Link></li>
-          <li><Link href="#/portfolio" color="inherit">Portfolio</Link></li>
-          <li><Link href="#/products" color="inherit">Latest jobs</Link></li>
-          <li><Link href="#/gallery" color="inherit">Gallery</Link></li>
-          <li><Link href="#/contact" color="inherit">Contact us</Link></li>
-        </ul>
-      </Grid>
 
-      {/* Contact Us Section */}
-      <Grid item md={4} sm={12}>
-        <Typography variant="h6" gutterBottom>Contact Us</Typography>
-        <address>
-          BlueDart <br />
-          Marthandam (K.K District) <br />
-          Tamil Nadu, IND <br />
-          {/* Phone: <FontAwesomeIcon icon={faPhone} /> +91 9159669599 <br /> */}
-          Email: <Link href="mailto:info@bluedart.in" color="inherit">info@bluedart.in</Link><br />
-          Web: <Link href="http://www.bluedart.in" color="inherit">www.bluedart.in</Link>
-        </address>
-      </Grid>
-    </Grid>
-  </Container>
+
+
+
+    {/* Useful Links Section */}
+    <div className="flex-1">
+      <Typography variant="h6" gutterBottom className='text-center no-underline'>
+        Menu
+      </Typography> 
+      <ul  className="flex flex-col text-center justify-between list-none p-0 space-y-4">
+        <li>
+          <Link href="/" color="inherit">
+            Home
+          </Link>
+        </li>
+        <li>
+          <Link href="/About_us" color="inherit">
+            About Us
+          </Link>
+        </li>
+        <li>
+          <Link href="/Member_List" color="inherit">
+            Member List
+          </Link>
+        </li>
+        <li>
+          <Link href="/Donation_List" color="inherit">
+            Donation List
+          </Link>
+        </li>
+        <li>
+          <Link href="/Rules_Regulations" color="inherit">
+            Rules & Regulation
+          </Link>
+        </li>
+        <li>
+          <Link href="Contact_Us" color="inherit">
+            Contact Us
+          </Link>
+        </li>
+      </ul>
+    </div>
+
+
+
+
+
+
+
+
+
+    {/* Contact Us Section */}
+    {/* <div className="flex-1">
+      <Typography variant="h6" gutterBottom className='text-center'>
+        Contact Us
+      </Typography>
+      <div className="flex flex-col justify-center items-center space-y-4 mt-2 md:mt-0">
+        <div className="flex flex-col ">
+          <IconButton color="inherit" href="https://github.com">
+            <GitHub />
+          </IconButton>
+          <IconButton color="inherit" href="#">
+            <Google />
+          </IconButton>
+          <IconButton color="inherit" href="#">
+            <Pinterest />
+          </IconButton>
+          <IconButton color="inherit" href="#">
+            <Twitter />
+          </IconButton>
+          <IconButton color="inherit" href="#">
+            <Facebook />
+          </IconButton>
+        </div>
+      </div>
+    </div> */}
+
+   <div className="flex flex-col flex-1 space-y-4">
+    <p className='text-center'>
+      Links
+    </p>
+        <IconButton color="inherit" href="https://whatsapp.com/channel/0029VajOtfp59PwSxSNdHT1W" target="_blank">
+        <FaWhatsapp />
+        </IconButton>
+        <IconButton color="inherit" href="https://www.youtube.com/@AggrabandhuSewaSansthan" target="_blank">
+          <FaYoutube />
+        </IconButton>
+        <IconButton color="inherit" href="https://instagram.com" target="_blank">
+        <FaInstagram />
+      </IconButton>
+        <IconButton color="inherit" href="#">
+          <Twitter />
+        </IconButton>
+        <IconButton color="inherit" href="https://www.facebook.com/aggrabandhusevarthsansthan/" target='_blank'>
+          <Facebook />
+        </IconButton>
+      </div>
+
+
+
+
+
+
+
+  </div>
+</Container>
 
 
 
@@ -60,11 +143,18 @@ const Footer = () => {
 
   {/* Footer Bottom */}
   <Box className="bg-gray-900 py-2 ">
+
+
+
+
+
+
     <Container className="flex flex-col md:flex-row justify-between items-center">
       <Typography variant="body2" color="inherit" className="text-center md:text-left">
-        <Link href="https://www.smarteyeapps.com/" color="inherit">2015 &copy; All Rights Reserved | Designed and Developed by Smarteyeapps</Link>
+        All Right Reserved to Agrabandhu Sewarth Sansthan (ABSS) -	Desing & Developed by<Link href="https://www.mediatechtemple.com/" color="inherit"> MediaTechTemple (Take to Our Website)</Link>
       </Typography>
-      <div className="flex space-x-4 mt-2 md:mt-0">
+
+      {/* <div className="flex space-x-4 mt-2 md:mt-0">
         <IconButton color="inherit" href="https://github.com">
           <GitHub />
         </IconButton>
@@ -80,9 +170,13 @@ const Footer = () => {
         <IconButton color="inherit" href="#">
           <Facebook />
         </IconButton>
-      </div>
+      </div> */}
+
+
     </Container>
   </Box>
+
+
 </footer>
 
   );
