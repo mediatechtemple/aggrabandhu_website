@@ -1,24 +1,42 @@
+'use client'
+import React, { useState } from 'react';
 
-import React from 'react'
-import NewsTicker from '@/components/Pincode/three'
-import EventsTicker from '@/components/Pincode/four'
+const PdfModal = () => {
+  const [isOpen, setIsOpen] = useState(false);
 
-const page = () => {
+  const openModal = () => setIsOpen(true);
+  const closeModal = () => setIsOpen(false);
+
   return (
-    <>
-  
-    <div className="p-4 flex flex-row">
-      <div className='flex-grow'>
-        <h1 className="text-2xl font-bold mb-4  text-center ">Latest News and Updates</h1>
-        <NewsTicker />
-      </div>
-      <div className='flex-grow'>
-        <h1 className="text-2xl font-bold mb-4  text-center">Latest Events and Updates</h1>
-        <EventsTicker />
-      </div>
-    </div>
-    </>
-  )
-}
+    <div>
+      <button
+        onClick={openModal}
+        className="bg-blue-500 text-white px-4 py-2 rounded"
+      >
+        Open PDF
+      </button>
 
-export default page
+      {isOpen && (
+        <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center">
+          <div className="bg-white p-6 rounded-lg max-w-lg w-full">
+            <button
+              onClick={closeModal}
+              className="bg-red-500 text-white px-2 py-1 rounded float-right"
+            >
+              Close
+            </button>
+            <iframe
+              src="/rules_regulation/Rule & Regulation.pdf"
+              width="100%"
+              height="500px"
+              className="border-2 border-gray-300"
+              title="PDF Viewer"
+            ></iframe>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default PdfModal;

@@ -44,7 +44,7 @@ export default function Header() {
         </IconButton>
       </div> */}
 
-            <div className="hidden lg:block">
+            <div >
               <button className="bg-green-500 text-white py-2 px-4 rounded" >
               <Link href="https://dashboard.aggrabandhuss.org/Login/" className="text-gray-700 hover:text-gray-900">Login/Apply Membership</Link>
               </button>
