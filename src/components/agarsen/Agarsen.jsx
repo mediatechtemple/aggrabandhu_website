@@ -1,7 +1,7 @@
-import LaxmiBrick from "../../public/images/LaxmiBrick.png";
-import sahyog from "../../public/images/sahyog.png";
-import mainVIshkarma from "../../public/images/mianvishkarma.png";
-import sideVishkarma from "../../public/images/sideVishkarma.png";
+import LaxmiBrick from "/images/LaxmiBrick.png";
+import sahyog from "/images/sahyog.png";
+import mainVIshkarma from "/images/mianvishkarma.png";
+import sideVishkarma from "/images/sideVishkarma.png";
 import { Button } from "../ui/button";
 import Image from "next/image";
 
