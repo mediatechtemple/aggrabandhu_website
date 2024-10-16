@@ -26,3 +26,5 @@ const RuleAndRegulation = () => {
 };
 
 export default RuleAndRegulation;
+
+///this
