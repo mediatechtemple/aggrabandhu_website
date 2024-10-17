@@ -11,7 +11,6 @@ const Footer = () => {
     <div className="bg-black w-full py-8">
       <div className="flex flex-col md:flex-row justify-around items-center gap-8">
         <div className="flex flex-col md:flex-row items-center gap-6 text-lg font-semibold text-white uppercase">
-          <p>Terms and Conditions</p>
           <Link href={"privacy"}>Privacy Policy</Link>
           <Link href={"rule"}>Rules & Regulations</Link>
           <Button className="rounded-full font-semibold uppercase bg-orange-600 border border-green-500 hover:bg-orange-700">
@@ -28,10 +27,50 @@ const Footer = () => {
       </p>
 
       <div className="fixed bottom-2 right-8 z-20 flex flex-col space-y-2">
-        <Image src={youtubeLogo} alt="YouTube Logo" className="w-10 h-auto" />
-        <Image src={facebookLogo} alt="Facebook Logo" className="w-10 h-auto" />
-        <Image src={instraLogo} alt="Instagram Logo" className="w-10 h-auto" />
-        <Image src={whatsAppLogo} alt="WhatsApp Logo" className="w-10 h-auto" />
+        <Link
+          href="https://www.youtube.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image
+            src={youtubeLogo}
+            alt="YouTube Logo"
+            className="w-10 h-auto cursor-pointer"
+          />
+        </Link>
+        <Link
+          href="https://www.facebook.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image
+            src={facebookLogo}
+            alt="Facebook Logo"
+            className="w-10 h-auto cursor-pointer"
+          />
+        </Link>
+        <Link
+          href="https://www.instagram.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image
+            src={instraLogo}
+            alt="Instagram Logo"
+            className="w-10 h-auto cursor-pointer"
+          />
+        </Link>
+        <Link
+          href="https://web.whatsapp.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image
+            src={whatsAppLogo}
+            alt="WhatsApp Logo"
+            className="w-10 h-auto cursor-pointer"
+          />
+        </Link>
       </div>
     </div>
   );

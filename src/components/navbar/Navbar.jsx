@@ -57,9 +57,12 @@ const Navbar = () => {
                 )}
               </Link>
             ))}
-            <Button className="text-wrap border-2 border-green-500 text-white bg-orange-600 rounded-full px-4 py-2 hover:bg-orange-700">
+            <Link
+              href={"https://dashboard.aggrabandhuss.org/Login"}
+              className="text-wrap border-2 border-green-500 text-white bg-orange-600 rounded-full px-4 py-2 hover:bg-orange-700"
+            >
               Login / Apply Membership
-            </Button>
+            </Link>
           </div>
 
           <div className="md:hidden flex items-center">

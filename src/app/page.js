@@ -20,8 +20,7 @@ export default function Home() {
         <LatestUpdate updatesName={"Latest Nesw And Updates"} />
         <LatestUpdate updatesName={"Latest Event And Updates"} />
       </div> */}
-      
-     
+
       <Profile1 />
       <Profile2 />
       <Profile3 />
