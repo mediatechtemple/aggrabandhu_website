@@ -2,14 +2,14 @@
 import React, { useEffect, useState } from "react";
 
 const RuleAndRegulation = () => {
-  const [privacyPolicy, setPrivacyPolicy] = useState([]);
+  const [rules, setRules] = useState([]);
   const handelPrivatePolicy = async () => {
     try {
       const data = await fetch("https://backend.aggrabandhuss.org/api/rule");
 
       const result = await data.json();
 
-      setPrivacyPolicy(result[0].rule);
+      setRules(result[0].rule);
     } catch (error) {
       console.log(error);
     }
@@ -19,8 +19,8 @@ const RuleAndRegulation = () => {
     handelPrivatePolicy();
   }, []);
   return (
-    <div className="mt-20 max-w-4xl mx-auto">
-      <div dangerouslySetInnerHTML={{ __html: privacyPolicy }} />
+    <div className="mt-20 max-w-4xl mx-auto px-4">
+      <div dangerouslySetInnerHTML={{ __html: rules }} />
     </div>
   );
 };

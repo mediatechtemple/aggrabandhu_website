@@ -19,7 +19,7 @@ const Navbar = () => {
     { name: "Gallery", path: "/gallery" },
     { name: "Member List", path: "/members" },
     { name: "Donation List", path: "/donations" },
-    { name: "Rules & Regulations", path: "/rules" },
+    { name: "Rules & Regulations", path: "/rule" },
   ];
 
   const toggleMenu = () => {
@@ -46,7 +46,11 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex md:items-center md:space-x-4">
             {navItems.map(({ name, path }) => (
-              <Link key={name} href={path} className="flex items-center hover:text-blue-600 transition-all duration-200">
+              <Link
+                key={name}
+                href={path}
+                className="flex items-center hover:text-blue-600 transition-all duration-200"
+              >
                 {name}{" "}
                 {name === "Home" && (
                   <Image src={dropdown} alt="dropdown" className="w-3 inline" />
@@ -77,7 +81,11 @@ const Navbar = () => {
         <div className="md:hidden bg-white shadow">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 uppercase flex flex-col items-center">
             {navItems.map(({ name, path }) => (
-              <Link key={name} href={path} className="text-sm flex items-center hover:text-blue-600 transition-all duration-200">
+              <Link
+                key={name}
+                href={path}
+                className="text-sm flex items-center hover:text-blue-600 transition-all duration-200"
+              >
                 {name}{" "}
                 {name === "Home" && (
                   <Image src={dropdown} alt="dropdown" className="w-3 inline" />
