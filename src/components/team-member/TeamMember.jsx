@@ -3,6 +3,7 @@ import { BsSearch } from "react-icons/bs";
 import { Input } from "../ui/input";
 import MemberList from "./MemberList";
 import { useEffect, useState } from "react";
+import urlApi from "@/utils/api";
 
 const TeamMember = () => {
   const [member, setMember] = useState([]);
@@ -10,9 +11,7 @@ const TeamMember = () => {
   const [searchQuery, setSearchQuery] = useState("");
 
   const handelMemberList = async () => {
-    const data = await fetch(
-      "https://backend.aggrabandhuss.org/api/designation"
-    );
+    const data = await fetch(`${urlApi}/designation`);
     const res = await data.json();
     setMember(res);
     setFilteredMembers(res);

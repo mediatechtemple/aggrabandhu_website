@@ -3,6 +3,7 @@ import "./globals.css";
 import { Suspense } from "react";
 import { Loading } from "@/Loading";
 import Navbar from "@/components/navbar/Navbar";
+import Footer from "@/components/footer/Footer";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -25,11 +26,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
       >
         <Suspense fallback={<Loading />}>
           <Navbar />
-          {children}
+          <main className="flex-grow">{children}</main>{" "}
+          {/* Main content grows */}
+          <Footer /> {/* Footer stays at the bottom */}
         </Suspense>
       </body>
     </html>

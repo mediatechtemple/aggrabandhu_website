@@ -1,7 +1,6 @@
 import Agarbandhu from "@/components/agarbandhu/Agarbandhu";
 import Agarsen from "@/components/agarsen/Agarsen";
-import Footer from "@/components/footer/Footer";
-import Galery from "@/components/galery/Galery";
+import GalleryComponent from "@/components/galery/Galery";
 import LatestUpdate from "@/components/latest-update/LatestUpdate";
 import Profile1 from "@/components/profile/Profile1";
 import Profile2 from "@/components/profile/Profile2";
@@ -13,7 +12,7 @@ import Profile7 from "@/components/profile/Profile7";
 
 export default function Home() {
   return (
-    <div className="w-full h-screen">
+    <div className="">
       <Agarsen />
       <Agarbandhu />
       {/* <div className="bg-customYellow flex justify-between items-center p-10">
@@ -28,8 +27,7 @@ export default function Home() {
       <Profile5 />
       <Profile6 />
       <Profile7 />
-      <Galery />
-      <Footer />
+      <GalleryComponent />
     </div>
   );
 }

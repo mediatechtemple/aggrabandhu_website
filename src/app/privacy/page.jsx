@@ -1,4 +1,5 @@
 "use client";
+import urlApi from "@/utils/api";
 import React, { useEffect, useState } from "react";
 
 const PrivatePolicy = () => {
@@ -6,7 +7,7 @@ const PrivatePolicy = () => {
 
   const handelPrivatePolicy = async () => {
     try {
-      const data = await fetch("https://backend.aggrabandhuss.org/api/policy");
+      const data = await fetch(`${urlApi}/policy`);
       const result = await data.json();
 
       const updatedPolicy = result[0].policy.replace(
@@ -25,9 +26,11 @@ const PrivatePolicy = () => {
   }, []);
 
   return (
-    <div className="mt-20 md:max-w-4xl mx-auto px-4">
-      <div dangerouslySetInnerHTML={{ __html: privacyPolicy }} />
-    </div>
+    <>
+      <div className="mt-20 md:max-w-4xl mx-auto px-4">
+        <div dangerouslySetInnerHTML={{ __html: privacyPolicy }} />
+      </div>
+    </>
   );
 };
 
