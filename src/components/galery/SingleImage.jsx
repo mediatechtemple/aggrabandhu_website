@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const SingleImage = ({ imageUrl, description }) => {
   return (
-    <div className="group">
+    <div className="group w-full h-full object-cover">
       <Image
         src={`https://backend.aggrabandhuss.org${imageUrl}`}
         alt={description}

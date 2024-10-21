@@ -1,11 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
+    domains: ["backend.aggrabandhuss.org"],
     remotePatterns: [
       {
         protocol: "https",
         hostname: "backend.aggrabandhuss.org",
-        pathname: "/**", // This allows all images from this domain
+        pathname: "/**",
       },
     ],
   },

@@ -15,10 +15,10 @@ export default function Home() {
     <div className="">
       <Agarsen />
       <Agarbandhu />
-      {/* <div className="bg-customYellow flex justify-between items-center p-10">
+      <div className="bg-customYellow flex md:flex-row sm: flex-col  justify-between items-center  p-5">
         <LatestUpdate updatesName={"Latest Nesw And Updates"} />
         <LatestUpdate updatesName={"Latest Event And Updates"} />
-      </div> */}
+      </div>
 
       <Profile1 />
       <Profile2 />

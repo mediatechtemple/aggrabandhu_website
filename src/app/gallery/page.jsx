@@ -7,7 +7,7 @@ const GalleryPage = () => {
   const [gallery, loading] = useGetAllGallery();
 
   const filteredGallery = gallery.filter(
-    (image) => ![1, 2, 3].includes(image.id)
+    (image) => image.url !== null && ![1, 2, 3].includes(image.id)
   );
   return (
     <div className="p-8 bg-gray-50 mt-20">
@@ -19,11 +19,13 @@ const GalleryPage = () => {
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {filteredGallery.map((image) => (
-            <SingleImage
-              key={image.id}
-              imageUrl={image.url}
-              description={image.description}
-            />
+            <div key={image.id} className="w-full h-64 overflow-hidden">
+              <SingleImage
+                key={image.id}
+                imageUrl={image.url}
+                description={image.description}
+              />
+            </div>
           ))}
         </div>
       )}

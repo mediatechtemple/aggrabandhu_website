@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
+import urlApi from "@/utils/api";
 
 const AddGallery = () => {
   const [image, setImage] = useState(null);
@@ -50,6 +51,7 @@ const AddGallery = () => {
       setLoading(false);
     }
   };
+
   return (
     <div className="max-w-lg mx-auto p-6 bg-white shadow-md rounded-10 mt-30">
       <h2 className="text-2xl font-extrabold text-green-600 mb-6 text-center">
