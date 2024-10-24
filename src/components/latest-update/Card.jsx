@@ -5,18 +5,19 @@ import { useEffect, useRef } from "react";
 export function CardWithForm({ scrollPosition }) {
   const scrollRef = useRef(null);
   useEffect(() => {
-    if (scrollRef.current) {
-      const { scrollTop, scrollHeight, clientHeight } = scrollRef.current;
-      const scrollContent = () => {
+    const scrollContent = () => {
+      if (scrollRef.current) {
+        const { scrollTop, scrollHeight, clientHeight } = scrollRef.current;
+
         if (scrollTop + clientHeight >= scrollHeight) {
           scrollRef.current.scrollTo({ top: 0, behavior: "smooth" });
         } else {
           scrollRef.current.scrollBy({ top: 1, behavior: "smooth" });
         }
-      };
-      const interval = setInterval(scrollContent, 50);
-      return () => clearInterval(interval);
-    }
+      }
+    };
+    const interval = setInterval(scrollContent, 50);
+    return () => clearInterval(interval);
   }, []);
   return (
     <Card className="w-9/12 bg-white border-none mb-3">

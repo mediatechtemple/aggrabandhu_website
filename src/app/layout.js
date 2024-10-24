@@ -1,12 +1,9 @@
-"use client";
 import localFont from "next/font/local";
 import "./globals.css";
 import { Suspense } from "react";
 import { Loading } from "@/Loading";
-import Navbar from "@/components/navbar/Navbar";
-import Footer from "@/components/footer/Footer";
 import { Toaster } from "@/components/ui/sonner";
-import { usePathname } from "next/navigation";
+import CommonLayout from "@/components/common-layout/CommonLayout";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -21,19 +18,29 @@ const geistMono = localFont({
 });
 
 export default function RootLayout({ children }) {
-  const pathName = usePathname();
-
-  const shouldHideHeaderFooter = pathName === "/aboutus";
   return (
     <html lang="en">
+      <head>
+        <meta charSet="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+          name="description"
+          content="Your website description here for SEO."
+        />
+        <meta
+          name="keywords"
+          content="web, development, nextjs, product, service"
+        />
+        <meta name="author" content="Your Name or Company Name" />
+        <link rel="icon" href="/favicon.ico" />
+        <title>Your Website Title</title>
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
       >
         <Suspense fallback={<Loading />}>
           <Toaster />
-          {!shouldHideHeaderFooter && <Navbar />}
-          <main className="flex-grow">{children}</main>
-          {!shouldHideHeaderFooter && <Footer />}
+          <CommonLayout children={children} />
         </Suspense>
       </body>
     </html>

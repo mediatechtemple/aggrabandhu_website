@@ -23,7 +23,7 @@ const DonationPage = () => {
   const handleDonationList = async () => {
     setLoading(true);
     try {
-      const apiResponse = await fetch(`${urlApi}/donationReceive`);
+      const apiResponse = await fetch(`${urlApi}/donation`);
       const response = await apiResponse.json();
       setDonationList(response.data);
     } catch (error) {
@@ -45,9 +45,9 @@ const DonationPage = () => {
   }
   return (
     <div className="mt-20 overflow-x-auto">
-      <h1 className="text-center font-bold text-2xl">A Donation List</h1>
+      <h1 className="text-center font-bold text-2xl">A Contributor List</h1>
       <Table className="min-w-full border-collapse table-auto">
-        <TableCaption>A list of Donations.</TableCaption>
+        <TableCaption>A list of Contributors.</TableCaption>
         <TableHeader>
           <TableRow className="border border-gray-300">
             <TableHead className="w-[100px] border border-gray-300">
@@ -55,19 +55,19 @@ const DonationPage = () => {
             </TableHead>
             <TableHead className="border border-gray-300">Profile</TableHead>
             <TableHead className="border border-gray-300">Name</TableHead>
-            <TableHead className="text-center border border-gray-300">
+            {/* <TableHead className="text-center border border-gray-300">
               Bank
-            </TableHead>
+            </TableHead> */}
             <TableHead className="border border-gray-300">Address</TableHead>
-            <TableHead className="text-right border border-gray-300">
+            <TableHead className=" border border-gray-300">
               Start Date
             </TableHead>
-            <TableHead className="text-right border border-gray-300">
+            {/* <TableHead className="text-right border border-gray-300">
               End Date
-            </TableHead>
-            <TableHead className="text-center border border-gray-300">
+            </TableHead> */}
+            {/* <TableHead className="text-center border border-gray-300">
               Actions
-            </TableHead>
+            </TableHead> */}
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -84,7 +84,7 @@ const DonationPage = () => {
                   <AvatarFallback>CN</AvatarFallback>
                 </Avatar>
                 {/* Status Icon and Text */}
-                <div className="flex items-center space-x-2">
+                {/* <div className="flex items-center space-x-2">
                   {item.status === "Active" ? (
                     <>
                       <span className="rounded-full w-1.5 h-1.5 bg-green-600"></span>
@@ -96,30 +96,29 @@ const DonationPage = () => {
                       <span>Inactive</span>
                     </>
                   )}
-                </div>
+                </div> */}
               </TableCell>
               <TableCell className="border border-gray-300">
                 {item.Member.name}
               </TableCell>
-              <TableCell className="border border-gray-300">
+              {/* <TableCell className="border border-gray-300">
                 {item.bank_detail}
-              </TableCell>
+              </TableCell> */}
               <TableCell className="border border-gray-300 space-x-2">
+                {`${item.Member.district}, `}
                 {item.Member.state}
-                <br />
-                {item.Member.district}
               </TableCell>
-              <TableCell className="text-right border border-gray-300">
-                {new Date(item.start_date).toLocaleDateString()}
+              <TableCell className=" border border-gray-300">
+                {new Date(item.donation_date).toLocaleDateString()}
               </TableCell>
-              <TableCell className="text-right border border-gray-300">
+              {/* <TableCell className="text-right border border-gray-300">
                 {new Date(item.end_date).toLocaleDateString()}
-              </TableCell>
-              <TableCell className="text-right border border-gray-300">
+              </TableCell> */}
+              {/* <TableCell className="text-right border border-gray-300">
                 <Button onClick={() => router.push("payment")}>
                   Click To Donate
                 </Button>
-              </TableCell>
+              </TableCell> */}
             </TableRow>
           ))}
         </TableBody>

@@ -20,9 +20,9 @@ const Agarsen = () => {
             अबोध उम्र के होते हैं, जिससे परिवार गंभीर आर्थिक संकट में आ जाता है
             “।
           </h3>
-          <Button className="font-semibold rounded-full px-6 py-2 text-white bg-orange-600 border border-green-500">
+          {/* <Button className="font-semibold rounded-full px-6 py-2 text-white bg-orange-600 border border-green-500">
             संपर्क करें
-          </Button>
+          </Button> */}
         </div>
 
         <Image

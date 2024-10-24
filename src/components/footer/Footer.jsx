@@ -13,9 +13,9 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row items-center gap-6 text-lg font-semibold text-white uppercase">
           <Link href={"privacy"}>Privacy Policy</Link>
           <Link href={"rule"}>Rules & Regulations</Link>
-          <Button className="rounded-full font-semibold uppercase bg-orange-600 border border-green-500 hover:bg-orange-700">
+          {/* <Button className="rounded-full font-semibold uppercase bg-orange-600 border border-green-500 hover:bg-orange-700">
             Contact Us
-          </Button>
+          </Button> */}
         </div>
       </div>
 
