@@ -10,5 +10,5 @@ const AboutUs = () => {
     </>
   );
 };
-
+//this is initial commant
 export default AboutUs;
