@@ -35,7 +35,7 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/favicon.ico" />
        
 
-        <title>Aggrabandhu Sevarth Sansthan</title>
+        <title>ABSS-Agarwal Community</title>
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
