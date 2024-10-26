@@ -1,14 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 import { Loading } from "@/Loading";
 import urlApi from "@/utils/api";
 
 const ShowMemberList = () => {
-  const router = useRouter();
+  
   const [memberList, setMemberList] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [deleting, setDeleting] = useState(null); 
 
   const handleGetMemberList = async () => {
     setLoading(true);
@@ -23,23 +23,28 @@ const ShowMemberList = () => {
     }
   };
 
-  const handleDeleteMemberList = async (getCurrentID) => {
+  const handleDeleteMemberList = async (id) => {
+    setDeleting(id); 
     try {
-      const apiResponse = await fetch(`${urlApi}/designation/${getCurrentID}`, {
+      const apiResponse = await fetch(`${urlApi}/designation/${id}`, {
         method: "DELETE",
       });
       if (!apiResponse.ok) {
-        throw new Error("Network response was not ok");
-      } else router.refresh();
+        console.log("Network response was not ok");
+        return;
+      }
+      // Directly update the member list state after deletion
+      setMemberList((prevList) => prevList.filter((member) => member.id !== id));
     } catch (error) {
-      console.log(error);
+      console.log("Error deleting member:", error);
+    } finally {
+      setDeleting(null); 
     }
   };
 
   useEffect(() => {
     handleGetMemberList();
-    router.refresh();
-  }, [router]);
+  }, []); 
 
   if (loading) {
     return (
@@ -63,7 +68,7 @@ const ShowMemberList = () => {
           </tr>
         </thead>
         <tbody>
-          {memberList.map((item) => (
+          {memberList && memberList.length > 0 && memberList.map((item) => (
             <tr key={item.id} className="border-t">
               <td className="border px-4 py-2">{item.id}</td>
               <td className="border px-4 py-2">
@@ -78,12 +83,12 @@ const ShowMemberList = () => {
               <td className="border px-4 py-2">
                 <button
                   onClick={() => handleDeleteMemberList(item.id)}
-                  disabled={loading}
+                  disabled={deleting === item.id}
                   className={`px-4 py-2 text-white bg-red-600 rounded-full hover:bg-red-700 focus:ring focus:ring-red-500 focus:outline-none ${
-                    loading ? "opacity-50 cursor-not-allowed" : ""
+                    deleting === item.id ? "opacity-50 cursor-not-allowed" : ""
                   }`}
                 >
-                  {loading ? "Deleting..." : "Delete"}
+                  {deleting === item.id ? "Deleting..." : "Delete"}
                 </button>
               </td>
             </tr>

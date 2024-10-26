@@ -1,14 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 import { Loading } from "@/Loading";
 import urlApi from "@/utils/api";
 
 const ShowGallery = () => {
-  const router = useRouter();
   const [galleryList, setGalleryList] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [deleting, setDeleting] = useState(null); 
 
   const handleGalleryList = async () => {
     setLoading(true);
@@ -33,9 +32,12 @@ const ShowGallery = () => {
       
       if (!apiResponse.ok) {
         throw new Error("Network response was not ok");
-      } else router.refresh()
+      }
+      setGalleryList((prevList) => prevList.filter((item) => item.id !== getCurrentID));
     } catch (error) {
       console.log(error);
+    }finally{
+      setDeleting(null)
     }
   };
 
@@ -78,12 +80,12 @@ const ShowGallery = () => {
               <td className="border px-4 py-2">
                 <button
                   onClick={() => handleDeleteGallery(item.id)}
-                  disabled={loading}
-                  className={`px-6 py-2 text-white bg-red-600 rounded-full hover:bg-red-700 focus:ring focus:ring-red-500 focus:outline-none ${
-                    loading ? "opacity-50 cursor-not-allowed" : ""
+                  disabled={deleting === item.id}
+                  className={`px-4 py-2 text-white bg-red-600 rounded-full hover:bg-red-700 focus:ring focus:ring-red-500 focus:outline-none ${
+                    deleting === item.id ? "opacity-50 cursor-not-allowed" : ""
                   }`}
                 >
-                  {loading ? "Deleting..." : "Delete"}
+                 {deleting === item.id ? "Deleting..." : "Delete"}
                 </button>
               </td>
             </tr>

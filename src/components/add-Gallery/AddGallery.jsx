@@ -1,9 +1,7 @@
 "use client";
-import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
 const AddGallery = () => {
-  const router = useRouter();
   const [image, setImage] = useState(null);
   const [description, setDescription] = useState("");
   const [loading, setLoading] = useState(false);
@@ -39,7 +37,7 @@ const AddGallery = () => {
         setIsSuccess(true);
         setImage(null);
         setDescription("");
-        router.refresh()
+        document.getElementById("fileInput").value = ""; // Reset file input
       } else {
         setMessage("Failed to upload the image.");
         setIsSuccess(false);
@@ -65,6 +63,7 @@ const AddGallery = () => {
             Upload Image
           </label>
           <input
+            id="fileInput"
             type="file"
             accept="image/*"
             onChange={handleImageChange}

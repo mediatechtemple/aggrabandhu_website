@@ -1,8 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { Label } from "../ui/label";
-import { Input } from "../ui/input";
-import { Button } from "../ui/button";
+
 
 const AddMemberList = () => {
   const [image, setImage] = useState(null);
@@ -41,6 +39,7 @@ const AddMemberList = () => {
         setImage(null);
         setName("");
         setDesignation("");
+        document.getElementById("fileInput").value = "";
       } else {
         setMessage("Failed to upload the image.");
         setIsSuccess(false);
@@ -56,16 +55,16 @@ const AddMemberList = () => {
   return (
     <div className="max-w-lg mx-auto p-6 bg-white shadow-md rounded-10 mt-30">
       <h2 className="text-2xl font-extrabold text-green-600 mb-6 text-center">
-        Add to Gallery
+        Add to MemberList
       </h2>
 
       <form onSubmit={handelSubmit} className="space-y-6">
         <div className="flex flex-col items-center">
-          <Label className="block mb-2 text-sm font-medium text-gray-700">
+          <label className="block mb-2 text-sm font-medium text-gray-700">
             Upload Image
-          </Label>
-          <Input
-            key={image || "file-input"}
+          </label>
+          <input
+            id="fileInput"
             type="file"
             accept="image/*"
             onChange={handleImageChange}
@@ -73,10 +72,11 @@ const AddMemberList = () => {
           />
         </div>
         <div>
-          <Label className="block mb-2 text-sm font-medium text-gray-700">
+          <label className="block mb-2 text-sm font-medium text-gray-700">
             Full Name
-          </Label>
-          <Input
+          </label>
+          <input
+          id="fileInput"
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
@@ -85,10 +85,10 @@ const AddMemberList = () => {
           />
         </div>
         <div>
-          <Label className="block mb-2 text-sm font-medium text-gray-700">
+          <label className="block mb-2 text-sm font-medium text-gray-700">
             Designation
-          </Label>
-          <Input
+          </label>
+          <input
             type="text"
             value={designation}
             onChange={(e) => setDesignation(e.target.value)}
@@ -98,7 +98,7 @@ const AddMemberList = () => {
         </div>
 
         <div className="text-center">
-          <Button
+          <button
             type="submit"
             disabled={loading}
             className={`px-6 py-2 text-white bg-green-600 rounded-full hover:bg-green-700 focus:ring focus:ring-green-500 focus:outline-none ${
@@ -106,7 +106,7 @@ const AddMemberList = () => {
             }`}
           >
             {loading ? "Submitting..." : "Submit"}
-          </Button>
+          </button>
         </div>
 
         {message && (

@@ -32,11 +32,10 @@ export default function RootLayout({ children }) {
           content="web, development, nextjs, product, service"
         />
         <meta name="author" content="Your Name or Company Name" />
-        <link rel="icon" href="/abssLogo.ico" sizes="any" />
-        <link rel="icon" href="/abssLogo.png" sizes="32x32" />
-        <link rel="icon" href="/abssLogo.png" sizes="16x16" />
+        <link rel="icon" href="/favicon.ico" />
+       
 
-        <title>Aggrabandhu Sevarth Sanstahn</title>
+        <title>Aggrabandhu Sevarth Sansthan</title>
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}

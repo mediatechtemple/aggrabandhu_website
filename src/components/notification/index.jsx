@@ -53,9 +53,15 @@ const Notification = () => {
                     auth: btoa(String.fromCharCode.apply(null, new Uint8Array(pushSubscription.getKey("auth")))),
                     p256dh: btoa(String.fromCharCode.apply(null, new Uint8Array(pushSubscription.getKey("p256dh")))),
                 }),
+            }).catch(error => {
+                console.error("Fetch error:", error);
             });
-
-            if (!response.ok) throw new Error("Failed to store subscription on server");
+            
+            if (!response.ok) {
+                const responseBody = await response.text();
+                throw new Error(`Failed to store subscription on server: ${responseBody}`);
+            }
+            
 
             updateStatus("Successfully subscribed to push notifications!");
             setIsSubscribed(true);
@@ -69,34 +75,35 @@ const Notification = () => {
     };
 
     useEffect(() => {
-        if (!localStorage.getItem("notificationSeen")) {
-            setShowCard(true);
-        }
+        // if (!localStorage.getItem("notificationSeen")) {
+        //     setShowCard(true);
+        // }
+        subscribeToPushNotifications()
     }, []);
 
     return (
         <>
-            {showCard && !isSubscribed && (
-                <div className="fixed top-0 left-60 transform -translate-x-1/2 z-50">
-                    <Card>
-                        <CardHeader>
-                            <CardTitle>Stay Updated</CardTitle>
-                            <CardDescription>Enable notifications to receive updates from us.</CardDescription>
-                        </CardHeader>
-                        <CardContent>
-                            <div className="flex justify-between gap-2">
-                                <Button onClick={subscribeToPushNotifications}>Allow Notifications</Button>
-                                <Button variant="secondary" onClick={() => setShowCard(false)}>Dismiss</Button>
-                            </div>
-                            {statusMessage && (
-                                <p className={`mt-2 ${isSubscribed ? "text-green-700" : "text-red-700"}`}>
-                                    {statusMessage}
-                                </p>
-                            )}
-                        </CardContent>
-                    </Card>
-                </div>
-            )}
+            {/* {showCard && !isSubscribed && (
+                // <div className="fixed top-0 left-60 transform -translate-x-1/2 z-50">
+                //     <Card>
+                //         <CardHeader>
+                //             <CardTitle>Stay Updated</CardTitle>
+                //             <CardDescription>Enable notifications to receive updates from us.</CardDescription>
+                //         </CardHeader>
+                //         <CardContent>
+                //             <div className="flex justify-between gap-2">
+                //                 <Button onClick={subscribeToPushNotifications}>Allow Notifications</Button>
+                //                 <Button variant="secondary" onClick={() => setShowCard(false)}>Dismiss</Button>
+                //             </div>
+                //             {statusMessage && (
+                //                 <p className={`mt-2 ${isSubscribed ? "text-green-700" : "text-red-700"}`}>
+                //                     {statusMessage}
+                //                 </p>
+                //             )}
+                //         </CardContent>
+                //     </Card>
+                // </div>
+            )} */}
         </>
     );
 };

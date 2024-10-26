@@ -1,17 +1,15 @@
 "use client";
 import React, { useState } from "react";
 import abssLogo from "../../public/images/abssLogo.png";
+import LOGO from '../../public/images/LOGO.png'
 import websiteName from "../../public/images/websiteName.png";
 import dropdown from "../../public/images/dropdown.png";
 import Image from "next/image";
-import { Button } from "../ui/button";
 import { IoMenu, IoClose } from "react-icons/io5";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const router = useRouter();
 
   const navItems = [
     { name: "Home", path: "/" },
@@ -37,9 +35,9 @@ const Navbar = () => {
               className="object-contain w-20 h-auto"
             />
             <Image
-              src={websiteName}
+              src={LOGO}
               alt="Website Name"
-              className="object-contain w-48 h-auto"
+              className="object-contain w-56 h-auto"
             />
           </div>
 
