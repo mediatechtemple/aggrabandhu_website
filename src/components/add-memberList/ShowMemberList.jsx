@@ -1,25 +1,15 @@
 "use client";
 
-import {
-  Table,
-  TableBody,
-  TableCaption,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import { Loading } from "@/Loading";
 import urlApi from "@/utils/api";
-import { useEffect, useState } from "react";
-import { Button } from "../ui/button";
-import { useRouter } from "next/navigation";
-import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 
 const ShowMemberList = () => {
   const router = useRouter();
   const [memberList, setMemberList] = useState([]);
   const [loading, setLoading] = useState(false);
+
   const handleGetMemberList = async () => {
     setLoading(true);
     try {
@@ -32,7 +22,8 @@ const ShowMemberList = () => {
       setLoading(false);
     }
   };
-  const handelDeleteMemberList = async (getCurrentID) => {
+
+  const handleDeleteMemberList = async (getCurrentID) => {
     try {
       const apiResponse = await fetch(`${urlApi}/designation/${getCurrentID}`, {
         method: "DELETE",
@@ -44,10 +35,12 @@ const ShowMemberList = () => {
       console.log(error);
     }
   };
+
   useEffect(() => {
     handleGetMemberList();
     router.refresh();
   }, [router]);
+
   if (loading) {
     return (
       <div className="flex justify-center items-center mt-20">
@@ -55,50 +48,48 @@ const ShowMemberList = () => {
       </div>
     );
   }
+
   return (
     <div className="mt-20 overflow-x-auto">
-      <Table>
-        <TableCaption>A list of Gallery.</TableCaption>
-        <TableHeader>
-          <TableRow>
-            <TableHead>Id</TableHead>
-            <TableHead>Image</TableHead>
-
-            <TableHead>Name</TableHead>
-            <TableHead>Designation</TableHead>
-            <TableHead>Action</TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
+      <table className="min-w-full bg-white border">
+        <caption className="text-lg font-semibold mb-4">A list of Gallery</caption>
+        <thead>
+          <tr className="text-left">
+            <th className="border px-4 py-2">Id</th>
+            <th className="border px-4 py-2">Image</th>
+            <th className="border px-4 py-2">Name</th>
+            <th className="border px-4 py-2">Designation</th>
+            <th className="border px-4 py-2">Action</th>
+          </tr>
+        </thead>
+        <tbody>
           {memberList.map((item) => (
-            <TableRow key={item.id}>
-              <TableCell>{item.id}</TableCell>
-              <TableCell className="font-medium">
-                <Avatar>
-                  <AvatarImage
-                    src={`https://backend.aggrabandhuss.org${item.image}`}
-                  />
-                  <AvatarFallback>CN</AvatarFallback>
-                </Avatar>
-              </TableCell>
-              <TableCell>{item.name}</TableCell>
-              <TableCell>{item.designation}</TableCell>
-              <TableCell>
-                <Button
-                  onClick={() => handelDeleteMemberList(item.id)}
-                  type="submit"
+            <tr key={item.id} className="border-t">
+              <td className="border px-4 py-2">{item.id}</td>
+              <td className="border px-4 py-2">
+                <img
+                  className="h-12 w-12 rounded-full object-cover"
+                  src={`https://backend.aggrabandhuss.org${item.image}`}
+                  alt={item.name}
+                />
+              </td>
+              <td className="border px-4 py-2">{item.name}</td>
+              <td className="border px-4 py-2">{item.designation}</td>
+              <td className="border px-4 py-2">
+                <button
+                  onClick={() => handleDeleteMemberList(item.id)}
                   disabled={loading}
-                  className={`px-6 py-2 text-white bg-red-600 rounded-full hover:bg-red-700 focus:ring focus:ring-red-500 focus:outline-none ${
+                  className={`px-4 py-2 text-white bg-red-600 rounded-full hover:bg-red-700 focus:ring focus:ring-red-500 focus:outline-none ${
                     loading ? "opacity-50 cursor-not-allowed" : ""
                   }`}
                 >
-                  {loading ? "Deleting..." : "Delete Image"}
-                </Button>
-              </TableCell>
-            </TableRow>
+                  {loading ? "Deleting..." : "Delete"}
+                </button>
+              </td>
+            </tr>
           ))}
-        </TableBody>
-      </Table>
+        </tbody>
+      </table>
     </div>
   );
 };

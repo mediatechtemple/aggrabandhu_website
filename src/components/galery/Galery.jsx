@@ -9,10 +9,10 @@ const GalleryComponent = () => {
   const router = useRouter();
 
   const [gallery, loading] = useGetAllGallery();
-  const filteredGallery = gallery.filter(
-    (image) => ![1, 2, 3].includes(image.id)
-  );
-  const displayedImages = filteredGallery.slice(0, 3);
+  // const filteredGallery = gallery.filter(
+  //   (image) => ![1, 2, 3].includes(image.id)
+  // );
+  const displayedImages = gallery.slice(0, 3);
 
   return (
     <div className="p-8 bg-gray-50">

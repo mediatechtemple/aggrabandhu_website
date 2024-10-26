@@ -85,7 +85,7 @@ const MembersPage = () => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {filteredMemberList.length > 0 &&
+          {filteredMemberList && filteredMemberList.length > 0 &&
             filteredMemberList.map((item) => (
               <TableRow key={item.id} className="border border-gray-300">
                 <TableCell className="border border-gray-300">
