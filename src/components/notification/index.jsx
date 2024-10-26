@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "../ui/card";
 import { Button } from "../ui/button";
 
-
 const Notification = () => {
     const [statusMessage, setStatusMessage] = useState("");
     const [isSubscribed, setIsSubscribed] = useState(false);
@@ -32,7 +31,10 @@ const Notification = () => {
             await navigator.serviceWorker.ready;
 
             const permission = await window.Notification.requestPermission();
-            if (permission !== "granted") throw new Error("Notification permission denied");
+            if (permission !== "granted") {
+                updateStatus("Notification permission denied.");
+                return; // Don't proceed if permission is denied
+            }
 
             const subscribeOptions = {
                 userVisibleOnly: true,
@@ -58,6 +60,9 @@ const Notification = () => {
             updateStatus("Successfully subscribed to push notifications!");
             setIsSubscribed(true);
             setShowCard(false);
+
+            // Save to localStorage only after successful subscription
+            localStorage.setItem("notificationSeen", "true");
         } catch (error) {
             updateStatus(`Error: ${error.message}`, true);
         }
@@ -66,14 +71,13 @@ const Notification = () => {
     useEffect(() => {
         if (!localStorage.getItem("notificationSeen")) {
             setShowCard(true);
-            localStorage.setItem("notificationSeen", "true");
         }
     }, []);
 
     return (
         <>
             {showCard && !isSubscribed && (
-                <div className="fixed top-0 left-60 transform -translate-x-1/2  z-50">
+                <div className="fixed top-0 left-60 transform -translate-x-1/2 z-50">
                     <Card>
                         <CardHeader>
                             <CardTitle>Stay Updated</CardTitle>
