@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from "react";
 import abssLogo from "../../public/images/abssLogo.png";
-import LOGO from '../../public/images/LOGO.png'
 import websiteName from "../../public/images/websiteName.png";
 import dropdown from "../../public/images/dropdown.png";
 import Image from "next/image";
@@ -35,9 +34,9 @@ const Navbar = () => {
               className="object-contain w-20 h-auto"
             />
             <Image
-              src={LOGO}
+              src={websiteName}
               alt="Website Name"
-              className="object-contain w-72 h-auto"
+              className="object-contain w-48 h-auto"
             />
           </div>
 
