@@ -3,7 +3,7 @@ import profile5 from "../../public/images/profile5.png";
 
 const Profile5 = () => {
   return (
-    <div className="flex flex-col md:flex-row justify-around items-center bg-gradient-to-r from-blue-700 to-darkChoclate p-8 mt-3">
+    <div className="flex flex-col-reverse md:flex-row justify-around items-center bg-gradient-to-r from-blue-700 to-darkChoclate p-8 mt-3">
       <h2 className="font-extrabold text-2xl text-white text-center md:text-left md:w-1/2">
         मेरा दायित्व न केवल वित्तीय संसाधनों का प्रबंधन करना है, बल्कि यह
         सुनिश्चित करना भी है कि हर योगदान का सही और पारदर्शी उपयोग हो हमारे सभी
@@ -20,7 +20,7 @@ const Profile5 = () => {
         है।
       </h2>
 
-      <div className="flex flex-col items-center md:w-1/2">
+      <div className="flex flex-col items-center md:w-1/2 mb-4 md:mb-0">
         <Image
           src={profile5}
           alt="Bharatendra Kumar"

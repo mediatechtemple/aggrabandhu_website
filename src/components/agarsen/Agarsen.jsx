@@ -8,7 +8,7 @@ import Image from "next/image";
 const Agarsen = () => {
   return (
     <div className="w-full h-auto bg-customYellow border border-white mt-20 px-4 py-5 md:py-0 md:px-0">
-      <div className="flex flex-col md:flex-row items-center justify-center md:space-x-6">
+      <div className="flex flex-col-reverse md:flex-row items-center justify-center md:space-x-6">
         <div className="flex flex-col justify-center items-center md:items-start space-y-6 text-center md:text-left w-full md:w-3/5">
           <h3 className="font-semibold text-lg md:text-xl text-darkChoclate">
             “ महाराजा अग्रसेन जी के संदेश{" "}

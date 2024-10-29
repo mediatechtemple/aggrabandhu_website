@@ -3,7 +3,7 @@ import profile4 from "../../public/images/profile4.png";
 
 const Profile4 = () => {
   return (
-    <div className="flex flex-col md:flex-row-reverse justify-around items-center bg-gradient-to-r from-red-600 to-sky-700 p-8 mt-3">
+    <div className="flex flex-col-reverse md:flex-row-reverse justify-around items-center bg-gradient-to-r from-red-600 to-sky-700 p-8 mt-3">
       <h2 className="font-extrabold text-2xl text-white text-center md:text-left md:w-1/2">
         मैं इस भूमिका को एक महत्वपूर्ण जिम्मेदारी मानता हूँ, जो हमारे संस्थान के
         संचालन और प्रशासन में सहायक होती है मेरी प्राथमिकता यह है कि हम अपने सभी
@@ -16,7 +16,7 @@ const Profile4 = () => {
         निर्माण कर सकें।
       </h2>
 
-      <div className="flex flex-col items-center md:w-1/2">
+      <div className="flex flex-col items-center md:w-1/2 mb-4 md:mb-0">
         <Image
           src={profile4}
           alt="atulAgarwal"

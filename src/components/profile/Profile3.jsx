@@ -3,7 +3,7 @@ import profile3 from "../../public/images/profile3.png";
 
 const Profile3 = () => {
   return (
-    <div className="flex flex-col md:flex-row justify-around items-center bg-gradient-to-r from-blue-700 to-orange-600 p-8 mt-3">
+    <div className="flex flex-col-reverse md:flex-row justify-around items-center bg-gradient-to-r from-blue-700 to-orange-600 p-8 mt-3">
       <h2 className="font-extrabold text-2xl text-white text-center md:text-left md:w-1/2">
         मैं गर्व महसूस करता हूँ कि हम सामाजिक कल्याण के क्षेत्र में जो कार्य कर
         रहे हैं, वह सही दिशा में अग्रसर है हमारी प्राथमिकता हमेशा उन लोगों की
@@ -18,7 +18,7 @@ const Profile3 = () => {
         कर्तव्य नहीं, बल्कि हमारे समाज को सशक्त बनाने का माध्यम है।
       </h2>
 
-      <div className="flex flex-col items-center md:w-1/2">
+      <div className="flex flex-col items-center md:w-1/2 mb-4 md:mb-0">
         <Image
           src={profile3}
           alt="Bharatendra Kumar"

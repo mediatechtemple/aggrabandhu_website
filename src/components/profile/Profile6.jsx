@@ -3,7 +3,7 @@ import profile6 from "../../public/images/profile6.png";
 
 const Profile6 = () => {
   return (
-    <div className="flex flex-col md:flex-row justify-around items-center bg-gradient-to-r from-red-700 to-pink-600 p-8 mt-3">
+    <div className="flex flex-col-reverse md:flex-row justify-around items-center bg-gradient-to-r from-red-700 to-pink-600 p-8 mt-3">
       <h2 className="font-extrabold text-2xl text-white text-center md:text-left md:w-1/2">
         अग्रबंधु सेवार्थ संस्थान (ABSS) की कार्यप्रणाली पूरी तरह से पारदर्शिता,
         वित्तीय अनुशासन, और सामाजिक उत्तरदायित्व के उच्च मानकों पर आधारित है।
@@ -16,7 +16,7 @@ const Profile6 = () => {
         के उद्देश्यों की पूर्ति और वित्तीय स्थिरता दोनों सुनिश्चित होते हैं।
       </h2>
 
-      <div className="flex flex-col items-center md:w-1/2">
+      <div className="flex flex-col items-center md:w-1/2 mb-4 md:mb-0">
         <Image
           src={profile6}
           alt="Bharatendra Kumar"

@@ -4,7 +4,7 @@ import laxmiJi from "../../public/images/laxmiJi.png";
 const Agarbandhu = () => {
   return (
     <div className="bg-lightBule p-10 border-2 border-gray-200 rounded-lg shadow-lg max-w-full mx-auto">
-      <div className="flex flex-col md:flex-row md:gap-10">
+      <div className="flex flex-col-reverse md:flex-row md:gap-10">
         {/* Text Section */}
         <div className="flex flex-col gap-10 w-full md:w-2/3 p-6">
           <h2 className="font-extrabold text-xl text-gray-800 leading-relaxed">

@@ -32,7 +32,7 @@ export default function RootLayout({ children }) {
           content="web, development, nextjs, product, service"
         />
         <meta name="author" content="Your Name or Company Name" />
-        <link rel="icon" href="/favicon.icon" />
+        <link rel="icon" href="/favicon.ico" />
        
 
         <title>Aggrabandhu Sevarth Sanstahn</title>
