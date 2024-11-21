@@ -5,10 +5,9 @@ import { Loading } from "@/Loading";
 import urlApi from "@/utils/api";
 
 const ShowMemberList = () => {
-  
   const [memberList, setMemberList] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [deleting, setDeleting] = useState(null); 
+  const [deleting, setDeleting] = useState(null);
 
   const handleGetMemberList = async () => {
     setLoading(true);
@@ -24,7 +23,7 @@ const ShowMemberList = () => {
   };
 
   const handleDeleteMemberList = async (id) => {
-    setDeleting(id); 
+    setDeleting(id);
     try {
       const apiResponse = await fetch(`${urlApi}/designation/${id}`, {
         method: "DELETE",
@@ -34,17 +33,19 @@ const ShowMemberList = () => {
         return;
       }
       // Directly update the member list state after deletion
-      setMemberList((prevList) => prevList.filter((member) => member.id !== id));
+      setMemberList((prevList) =>
+        prevList.filter((member) => member.id !== id)
+      );
     } catch (error) {
       console.log("Error deleting member:", error);
     } finally {
-      setDeleting(null); 
+      setDeleting(null);
     }
   };
 
   useEffect(() => {
     handleGetMemberList();
-  }, []); 
+  }, []);
 
   if (loading) {
     return (
@@ -57,7 +58,9 @@ const ShowMemberList = () => {
   return (
     <div className="mt-20 overflow-x-auto">
       <table className="min-w-full bg-white border">
-        <caption className="text-lg font-semibold mb-4">A list of Gallery</caption>
+        <caption className="text-lg font-semibold mb-4">
+          A list of Member
+        </caption>
         <thead>
           <tr className="text-left">
             <th className="border px-4 py-2">Id</th>
@@ -68,31 +71,35 @@ const ShowMemberList = () => {
           </tr>
         </thead>
         <tbody>
-          {memberList && memberList.length > 0 && memberList.map((item) => (
-            <tr key={item.id} className="border-t">
-              <td className="border px-4 py-2">{item.id}</td>
-              <td className="border px-4 py-2">
-                <img
-                  className="h-12 w-12 rounded-full object-cover"
-                  src={`https://backend.aggrabandhuss.org${item.image}`}
-                  alt={item.name}
-                />
-              </td>
-              <td className="border px-4 py-2">{item.name}</td>
-              <td className="border px-4 py-2">{item.designation}</td>
-              <td className="border px-4 py-2">
-                <button
-                  onClick={() => handleDeleteMemberList(item.id)}
-                  disabled={deleting === item.id}
-                  className={`px-4 py-2 text-white bg-red-600 rounded-full hover:bg-red-700 focus:ring focus:ring-red-500 focus:outline-none ${
-                    deleting === item.id ? "opacity-50 cursor-not-allowed" : ""
-                  }`}
-                >
-                  {deleting === item.id ? "Deleting..." : "Delete"}
-                </button>
-              </td>
-            </tr>
-          ))}
+          {memberList &&
+            memberList.length > 0 &&
+            memberList.map((item) => (
+              <tr key={item.id} className="border-t">
+                <td className="border px-4 py-2">{item.id}</td>
+                <td className="border px-4 py-2">
+                  <img
+                    className="h-12 w-12 rounded-full object-cover"
+                    src={`https://backend.aggrabandhuss.org${item.image}`}
+                    alt={item.name}
+                  />
+                </td>
+                <td className="border px-4 py-2">{item.name}</td>
+                <td className="border px-4 py-2">{item.designation}</td>
+                <td className="border px-4 py-2">
+                  <button
+                    onClick={() => handleDeleteMemberList(item.id)}
+                    disabled={deleting === item.id}
+                    className={`px-4 py-2 text-white bg-red-600 rounded-full hover:bg-red-700 focus:ring focus:ring-red-500 focus:outline-none ${
+                      deleting === item.id
+                        ? "opacity-50 cursor-not-allowed"
+                        : ""
+                    }`}
+                  >
+                    {deleting === item.id ? "Deleting..." : "Delete"}
+                  </button>
+                </td>
+              </tr>
+            ))}
         </tbody>
       </table>
     </div>
