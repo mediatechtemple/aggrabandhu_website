@@ -1,5 +1,6 @@
 "use client";
 
+import Pagination from "@/components/Pagination/Pagination";
 import SearchBar from "@/components/search/SearchBar";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
@@ -20,13 +21,20 @@ const MembersPage = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const handleMemberList = async () => {
+
+  const [page,setPage]=useState(1);
+  const [totalPage,setTotalPages]=useState(1);
+
+  const handleMemberList = async (lim,page=1) => {
     setLoading(true);
     setError(null);
     try {
-      const apiResponse = await fetch(`${urlApi}/member`);
+      const apiResponse = await fetch(`${urlApi}/member?limit=${lim}&&page=${page}`);
       const response = await apiResponse.json();
       setMemberList(response.data);
+      setPage(response.currentPage);
+      setTotalPages(response.totalPages);
+      console.log(response)
     } catch (error) {
       console.error("Error fetching member data:", error);
       setError("Failed to load member data.");
@@ -63,7 +71,7 @@ const MembersPage = () => {
       <SearchBar onSearch={handleSearch} />
 
       <Table className="min-w-full border-collapse table-auto">
-        <TableCaption>A list of members.</TableCaption>
+        {/* <TableCaption>A list of members.</TableCaption> */}
         <TableHeader>
           <TableRow className="border border-gray-300">
             <TableHead className="text-start border border-gray-300 text-nowrap">
@@ -115,6 +123,11 @@ const MembersPage = () => {
             ))}
         </TableBody>
       </Table>
+      <Pagination
+      page={page} 
+      totalPages={totalPage} 
+        fetchMembers={handleMemberList} 
+       />
     </div>
   );
 };

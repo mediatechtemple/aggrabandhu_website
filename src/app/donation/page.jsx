@@ -15,20 +15,25 @@ import { Loading } from "@/Loading";
 import urlApi from "@/utils/api";
 import { useEffect, useMemo, useState } from "react";
 import SearchBar from "@/components/search/SearchBar";
+import Pagination from "@/components/Pagination/Pagination";
 
 const DonationPage = () => {
   const [donationList, setDonationList] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [page,setPage]=useState(1);
+  const [totalPage,setTotalPages]=useState(1);
 
-  const handleDonationList = async () => {
+  const handleDonationList = async (lim,page=1) => {
     setLoading(true);
     setError(null);
     try {
-      const apiResponse = await fetch(`${urlApi}/donationReceive`);
+      const apiResponse = await fetch(`${urlApi}/donationReceive?limit=${lim}&&page=${page}`);
       const response = await apiResponse.json();
       setDonationList(response.data);
+      setPage(response.currentPage);
+      setTotalPages(response.totalPages);
     } catch (error) {
       console.error("Error fetching member data:", error);
       setError("Failed to load donation data");
@@ -107,6 +112,11 @@ const DonationPage = () => {
           }
         </TableBody>
       </Table>
+      <Pagination
+      page={page} 
+      totalPages={totalPage} 
+        fetchMembers={handleDonationList} 
+       />
     </div>
   );
 };
